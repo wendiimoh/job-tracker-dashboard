@@ -1,30 +1,73 @@
-import JobCard from "../components/JobCard"
+import AddJob from "../components/AddJob";
+import JobCard from "../components/JobCard";
 
-const Dashboard=()=>{
+type Job = {
+  id:number;
+  company:string;
+  position:string;
+  status:string;
+};
+
+type Props={
+  jobs:Job[];
+  search:string;
+  setSearch:(value:string)=>void;
+  addJob:(job:any)=>void;
+  deleteJob:(id:number)=>void;
+  changeStatus:(id:number)=>void;
+};
+
+const Dashboard=({
+jobs,
+search,
+setSearch,
+addJob,
+deleteJob,
+changeStatus
+}:Props)=>{
 
 return(
 
-<div className="p-8">
+<div
+style={{
+flex:1,
+padding:"30px",
+background:"#f1f5f9",
+minHeight:"100vh"
+}}
+>
 
-<h1 className="text-3xl font-bold mb-6">
-Dashboard
-</h1>
+<h1>Dashboard</h1>
 
-<div className="grid gap-4">
+<AddJob onAddJob={addJob}/>
 
-<JobCard
-company="Google"
-position="Frontend Developer"
-status="Interview"
+<input
+type="text"
+placeholder="Search jobs..."
+value={search}
+onChange={(e)=>setSearch(e.target.value)}
+style={{
+width:"100%",
+padding:"10px",
+marginBottom:"20px",
+borderRadius:"8px",
+border:"1px solid gray"
+}}
 />
 
+{jobs.map((job)=>(
+
 <JobCard
-company="Microsoft"
-position="React Developer"
-status="Applied"
+key={job.id}
+id={job.id}
+company={job.company}
+position={job.position}
+status={job.status}
+onDelete={()=>deleteJob(job.id)}
+onStatusChange={changeStatus}
 />
 
-</div>
+))}
 
 </div>
 
@@ -32,4 +75,4 @@ status="Applied"
 
 }
 
-export default Dashboard
+export default Dashboard;
