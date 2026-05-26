@@ -1,6 +1,7 @@
 import AddJob from "../components/AddJob";
 import JobCard from "../components/JobCard";
 import StatsCard from "../components/StatsCard";
+import Navbar from "../components/Navbar";
 
 type Job = {
   id: number;
@@ -47,7 +48,7 @@ const Dashboard = ({
         minHeight: "100vh",
       }}
     >
-      <h1>Dashboard</h1>
+     <Navbar title="Dashboard"/>
 
       <div
         style={{
