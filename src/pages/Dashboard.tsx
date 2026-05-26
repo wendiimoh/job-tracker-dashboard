@@ -50,13 +50,15 @@ const Dashboard = ({
     >
      <Navbar title="Dashboard"/>
 
-      <div
-        style={{
-          display: "flex",
-          gap: "20px",
-          marginBottom: "20px",
-        }}
-      >
+   <div
+style={{
+display:"flex",
+gap:"20px",
+marginBottom:"20px",
+flexWrap:"wrap"
+}}
+>
+      
         <StatsCard title="Applied" count={appliedCount} />
         <StatsCard title="Interview" count={interviewCount} />
         <StatsCard title="Rejected" count={rejectedCount} />
