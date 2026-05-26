@@ -1,24 +1,109 @@
-const Sidebar = () => {
-  return (
-    <div
-      style={{
-        width: "250px",
-        background: "#1e293b",
-        color: "white",
-        minHeight: "100vh",
-        padding: "20px",
-      }}
-    >
-      <h2>Job Tracker</h2>
+import { useState } from "react";
+import {
+  FaHome,
+  FaBriefcase,
+  FaMoon,
+  FaSun,
+  FaUser
+} from "react-icons/fa";
 
-      <ul style={{ listStyle: "none", padding: 0 }}>
-        <li style={{ marginTop: "30px" }}>Dashboard</li>
-        <li style={{ marginTop: "20px" }}>Jobs</li>
-        <li style={{ marginTop: "20px" }}>Login</li>
-        <li style={{ marginTop: "20px" }}>Register</li>
-      </ul>
-    </div>
-  );
-};
+const Sidebar = () => {
+
+const [darkMode,setDarkMode]=useState(false);
+
+return(
+
+<div
+style={{
+width:"260px",
+background:darkMode ? "#0f172a" : "#1e293b",
+color:"white",
+minHeight:"100vh",
+padding:"25px",
+transition:"0.3s"
+}}
+>
+
+<h2
+style={{
+marginBottom:"40px"
+}}
+>
+Job Tracker
+</h2>
+
+<div
+style={{
+display:"flex",
+flexDirection:"column",
+gap:"25px"
+}}
+>
+
+<div
+style={{
+display:"flex",
+alignItems:"center",
+gap:"10px",
+cursor:"pointer"
+}}
+>
+<FaHome/>
+<span>Dashboard</span>
+</div>
+
+<div
+style={{
+display:"flex",
+alignItems:"center",
+gap:"10px",
+cursor:"pointer"
+}}
+>
+<FaBriefcase/>
+<span>Jobs</span>
+</div>
+
+<div
+style={{
+display:"flex",
+alignItems:"center",
+gap:"10px",
+cursor:"pointer"
+}}
+>
+<FaUser/>
+<span>Profile</span>
+</div>
+
+<hr/>
+
+<div
+onClick={()=>setDarkMode(!darkMode)}
+style={{
+display:"flex",
+alignItems:"center",
+gap:"10px",
+cursor:"pointer"
+}}
+>
+
+{darkMode ? <FaSun/> : <FaMoon/>}
+
+<span>
+
+{darkMode ? "Light Mode" : "Dark Mode"}
+
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+)
+
+}
 
 export default Sidebar;

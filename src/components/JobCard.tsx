@@ -1,10 +1,10 @@
 type Props = {
-id:number;
-company:string;
-position:string;
-status:string;
-onDelete:()=>void;
-onStatusChange:(id:number)=>void;
+  id:number;
+  company:string;
+  position:string;
+  status:string;
+  onDelete:()=>void;
+  onStatusChange:(id:number)=>void;
 };
 
 const JobCard=({
@@ -36,17 +36,24 @@ return(
 <div
 style={{
 background:"white",
-padding:"20px",
-borderRadius:"10px",
-marginBottom:"20px"
+padding:"25px",
+borderRadius:"16px",
+marginBottom:"20px",
+boxShadow:"0 4px 10px rgba(0,0,0,.1)"
 }}
 >
 
 <h2>{position}</h2>
 
-<p>{company}</p>
+<p
+style={{
+color:"#64748b"
+}}
+>
+{company}
+</p>
 
-<div style={{marginTop:"10px"}}>
+<div style={{marginTop:"15px"}}>
 
 <button
 onClick={()=>onStatusChange(id)}
@@ -54,9 +61,10 @@ style={{
 background:getStatusColor(),
 color:"white",
 border:"none",
-padding:"8px",
-borderRadius:"6px",
-marginRight:"10px"
+padding:"10px 15px",
+borderRadius:"8px",
+marginRight:"10px",
+cursor:"pointer"
 }}
 >
 {status}
@@ -65,11 +73,12 @@ marginRight:"10px"
 <button
 onClick={onDelete}
 style={{
-background:"red",
+background:"#dc2626",
 color:"white",
 border:"none",
-padding:"8px",
-borderRadius:"6px"
+padding:"10px 15px",
+borderRadius:"8px",
+cursor:"pointer"
 }}
 >
 Delete

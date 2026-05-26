@@ -63,7 +63,13 @@ function App() {
   );
 
   return (
-    <div style={{ display: "flex" }}>
+    <div
+      style={{
+        display: "flex",
+        background: "#e2e8f0",
+        minHeight: "100vh"
+      }}
+    >
       <Sidebar />
 
       <Dashboard
