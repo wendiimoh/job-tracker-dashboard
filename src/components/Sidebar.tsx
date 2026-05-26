@@ -13,12 +13,9 @@ const Sidebar = () => {
 
       <ul style={{ listStyle: "none", padding: 0 }}>
         <li style={{ marginTop: "30px" }}>Dashboard</li>
-
         <li style={{ marginTop: "20px" }}>Jobs</li>
-
-        <li style={{ marginTop: "20px" }}>Analytics</li>
-
-        <li style={{ marginTop: "20px" }}>Settings</li>
+        <li style={{ marginTop: "20px" }}>Login</li>
+        <li style={{ marginTop: "20px" }}>Register</li>
       </ul>
     </div>
   );
