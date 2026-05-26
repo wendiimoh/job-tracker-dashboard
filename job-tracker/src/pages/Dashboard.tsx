@@ -1,5 +1,6 @@
 import AddJob from "../components/AddJob";
 import JobCard from "../components/JobCard";
+import StatsCard from "../components/StatsCard";
 
 type Job = {
   id:number;
@@ -26,6 +27,21 @@ deleteJob,
 changeStatus
 }:Props)=>{
 
+const appliedCount=
+jobs.filter(
+(job)=>job.status==="Applied"
+).length;
+
+const interviewCount=
+jobs.filter(
+(job)=>job.status==="Interview"
+).length;
+
+const rejectedCount=
+jobs.filter(
+(job)=>job.status==="Rejected"
+).length;
+
 return(
 
 <div
@@ -38,6 +54,31 @@ minHeight:"100vh"
 >
 
 <h1>Dashboard</h1>
+
+<div
+style={{
+display:"flex",
+gap:"20px",
+marginBottom:"20px"
+}}
+>
+
+<StatsCard
+title="Applied"
+count={appliedCount}
+/>
+
+<StatsCard
+title="Interview"
+count={interviewCount}
+/>
+
+<StatsCard
+title="Rejected"
+count={rejectedCount}
+/>
+
+</div>
 
 <AddJob onAddJob={addJob}/>
 
